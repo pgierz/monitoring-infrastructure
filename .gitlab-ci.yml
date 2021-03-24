@@ -9,4 +9,4 @@ build:
     - echo ""
     - echo "Running following commands: "
     - echo "docker run -it --rm -d -p 8080:80 --name monitoring-base nginx"
-    - docker run -it --rm -d -p 8080:80 --name monitoring-base nginx
+    - docker run -it --rm -d -p 8080:80 --name monitoring-base -v site-content:/usr/share/nginx/html nginx
