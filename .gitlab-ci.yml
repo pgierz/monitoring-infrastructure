@@ -6,9 +6,8 @@ build:
   script:
     - echo "This is the build stage"
     - echo "It will create a NGINX container which monitoring sites can connect to"
-    - echo ""
     - echo "The following command will be run:"
-    - echo ""
+    - echo "docker rm -f monitoring-base || true"
+    - docker rm -f monitoring-base || true
     - echo "docker run -it --rm -d -p 8080:80 --name monitoring-base nginx"
-    - echo ""
     - docker run -it --rm -d -p 8080:80 --name monitoring-base -v site-content:/usr/share/nginx/html nginx
