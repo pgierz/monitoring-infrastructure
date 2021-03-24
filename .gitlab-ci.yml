@@ -1,0 +1,12 @@
+build:
+  stage: build
+  tags:
+    - shell
+    - paleosrv3
+  script:
+    - echo "This is the build stage"
+    - echo "It will create a NGINX container which monitoring sites can connect to"
+    - echo ""
+    - echo "Running following commands: "
+    - echo "docker run -it --rm -d -p 8080:80 --name monitoring-base nginx"
+    - docker run -it --rm -d -p 8080:80 --name monitoring-base nginx
