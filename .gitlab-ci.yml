@@ -1,16 +1,10 @@
-tags:
-- shell
-- paleosrv3
-
-spinup_network:
-  stage: build
-  script:
-    - docker network create sim-monitoring
-
 spinup_nginx:
   stage: build
-  dependencies:
-    - spinup_network
+  before_script:
+    - docker network create sim-monitoring
   script:
     - docker rm -f monitoring-base || true
     - docker run -it --rm -d -p 8080:80 --name monitoring-base -v "$(pwd)"/site-content:/usr/share/nginx/html nginx
+  tags:
+    - shell
+    - paleosrv3
