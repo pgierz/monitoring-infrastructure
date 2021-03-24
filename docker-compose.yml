@@ -1,0 +1,15 @@
+services:
+  web:
+    image: "nginx:latest"
+    ports:
+      - "8080:80"
+    volumes:
+      - ./site-content:/usr/share/nginx/html
+    networks:
+      - "sim-monitoring"
+  db:
+    image: "redis:alpine"
+    networks:
+      - "sim-monitoring"
+networks:
+  sim-monitoring:
