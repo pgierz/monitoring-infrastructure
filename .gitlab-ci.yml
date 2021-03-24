@@ -10,4 +10,4 @@ build:
     - echo "docker rm -f monitoring-base || true"
     - docker rm -f monitoring-base || true
     - echo "docker run -it --rm -d -p 8080:80 --name monitoring-base nginx"
-    - docker run -it --rm -d -p 8080:80 --name monitoring-base -v site-content:/usr/share/nginx/html nginx
+    - docker run -it --rm -d -p 8080:80 --name monitoring-base -v "$(pwd)"/site-content:/usr/share/nginx/html nginx
