@@ -1,7 +1,7 @@
 spinup_nginx:
   stage: build
   script:
-    - docker-compose up 
+    - docker-compose up -d
   tags:
     - shell
     - paleosrv3
