@@ -1,10 +1,7 @@
 spinup_nginx:
   stage: build
-  before_script:
-    - docker network create sim-monitoring
   script:
-    - docker rm -f monitoring-base || true
-    - docker run -it --rm -d -p 8080:80 --name monitoring-base -v "$(pwd)"/site-content:/usr/share/nginx/html nginx
+    - docker compose up 
   tags:
     - shell
     - paleosrv3
