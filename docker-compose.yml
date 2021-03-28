@@ -9,6 +9,8 @@ services:
       - "sim-monitoring"
   db:
     image: "redis:alpine"
+    ports:
+      - "6379:6379"
     networks:
       - "sim-monitoring"
 networks:

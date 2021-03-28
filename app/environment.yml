@@ -1,0 +1,11 @@
+name: monitoring-infrastructure
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8
+  - panel
+  - pip
+  - python-gitlab
+  - pip:
+    - atlassian-python-api
+    - redis
