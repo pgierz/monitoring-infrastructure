@@ -5,12 +5,26 @@ services:
       - "8080:80"
     volumes:
       - ./site-content:/usr/share/nginx/html
+      - ./templates_web:/etc/nginx/templates
     networks:
       - "sim-monitoring"
+  monitoring_network:
+    image: nginx:latest
+    networks:
+      - "sim-monitoring"
+    volumes:
+      - ./templates_monitoring_networks:/etc/nginx/templates
+    environment:
+      - NGINX_HOST="monitoring.paleosrv3.dmawi.de"
+      - NGINX_PORT=8888
   db:
     image: "redis:alpine"
     ports:
       - "6379:6379"
+    networks:
+      - "sim-monitoring"
+  backend:
+    build: ./app/backend/
     networks:
       - "sim-monitoring"
 networks:
